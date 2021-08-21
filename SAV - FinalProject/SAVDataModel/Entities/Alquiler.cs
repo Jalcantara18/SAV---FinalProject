@@ -21,6 +21,8 @@ namespace SAV___FinalProject.SAVDataModel.Entities
         public DateTime? FechaHasta { get; set; }
         public DateTime? FechaDevolucion { get; set; }
         public double Penalidad { get; set; }
+        public int AtendidoPorId { get; set; }
+        public Usuarios AtendidoPor { get; set; }
         public List<Vehiculo> Vehiculos { get; set; }
         public List<Cliente> Clientes { get; set; }
     }
