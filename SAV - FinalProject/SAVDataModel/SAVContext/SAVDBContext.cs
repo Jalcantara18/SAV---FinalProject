@@ -21,6 +21,7 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
         public DbSet<TipoCombustible> TipoCombustible { get; set; }
         public DbSet<TipoTransmision> TipoTransmision { get; set; }
         public DbSet<Alquiler> Alquiler { get; set; }
+        public DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -73,6 +74,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<Cliente>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region Marca
@@ -99,6 +103,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<Marca>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region Modelo
@@ -128,6 +135,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<Modelo>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region TipoCombustible
@@ -154,6 +164,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<TipoCombustible>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region TipoTransmision
@@ -180,6 +193,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<TipoTransmision>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region Vehiculo
@@ -246,6 +262,9 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<Vehiculo>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
 
             #region Alquiler
@@ -293,7 +312,79 @@ namespace SAV___FinalProject.SAVDataModel.SAVContext
                 .HasMaxLength(2)
                 .HasColumnType("Varchar")
                 .IsRequired();
+            modelBuilder.Entity<Alquiler>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
 
+            #endregion
+
+            #region Usuarios
+            modelBuilder.Entity<Usuarios>()
+                .ToTable("Usuarios")
+                .HasKey(Key => Key.Id);
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.Id)
+               .IsRequired()
+               .HasColumnName("UsuariosId");
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.Username)
+               .HasMaxLength(20)
+                .HasColumnType("Varchar")
+                .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.Password)
+               .HasMaxLength(20)
+                .HasColumnType("Varchar")
+                .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+              .Property(Prop => Prop.Nombre)
+              .HasMaxLength(100)
+              .HasColumnType("Varchar")
+              .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Apellido)
+             .HasMaxLength(100)
+             .HasColumnType("Varchar")
+             .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Telefono)
+             .HasMaxLength(11)
+             .HasColumnType("Varchar")
+             .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Direccion)
+             .HasMaxLength(100)
+             .HasColumnType("Varchar")
+             .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Correo)
+             .HasMaxLength(100)
+             .HasColumnType("Varchar")
+             .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Sexo)
+            .HasMaxLength(1)
+            .IsFixedLength()
+            .IsUnicode(false);
+            modelBuilder.Entity<Usuarios>()
+             .Property(Prop => Prop.Rol)
+             .HasMaxLength(15)
+             .HasColumnType("Varchar")
+             .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.Borrado)
+               .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.FechaRegistro)
+               .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+                .Property(Prop => Prop.Estatus)
+                .HasMaxLength(2)
+                .HasColumnType("Varchar")
+                .IsRequired();
+            modelBuilder.Entity<Usuarios>()
+               .Property(Prop => Prop.UsuarioModifico)
+               .IsRequired();
             #endregion
         }
     }

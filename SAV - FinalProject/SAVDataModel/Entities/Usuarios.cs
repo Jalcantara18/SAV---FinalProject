@@ -18,10 +18,9 @@ namespace SAV___FinalProject.SAVDataModel.Entities
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public string Correo { get; set; }
-        public char Sexo { get; set; }
+        public string Sexo { get; set; }
         public string Rol { get; set; }
-        public int Logged { get; set; }
-        public List<Alquiler> Alquiler { get; set; }
+        public List<Alquiler> Alquiler { get; set; }//Se debe retirar
 
     }
 }

@@ -7,6 +7,7 @@ using SAV___FinalProject.Ops.Generic;
 using System.Data.Entity;
 using SAV___FinalProject.SAVDataModel.SAVContext;
 using SAV___FinalProject.SAVDataModel.BaseEntity;
+using SAV___FinalProject.SAVDataModel.Entities;
 
 namespace SAV___FinalProject.Ops.Repos
 {
@@ -38,17 +39,11 @@ namespace SAV___FinalProject.Ops.Repos
             return new OperationResult() { Success = true };
         }
 
-    
-
-    public T FindById(int id)
+        public T FindById(int id)
         {
         return _set.FirstOrDefault(x => x.Id == id);
     }
 
-        public T FindUser(string User, string Password)
-        {
-            throw new NotImplementedException();
-        }
 
         public List<T> Getall()
         {

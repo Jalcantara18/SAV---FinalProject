@@ -13,7 +13,7 @@ namespace SAV___FinalProject.SAVDataModel.BaseEntity
         public bool Borrado { get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime? FechaModificacion { get; set; }
-        public string UsuarioModifico { get; set; }
+        public int UsuarioModifico { get; set; }
 
 
     }
